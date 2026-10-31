@@ -1,0 +1,20 @@
+{
+  "name": "graphile-worker-race",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:up": "docker run -d --rm --name gw-race-pg -e POSTGRES_PASSWORD=pw -p 55433:5432 postgres:16",
+    "db:down": "docker stop gw-race-pg",
+    "race": "node src/main.ts",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "graphile-worker": "^0.17.3",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
+    "typescript": "^5.9.3"
+  }
+}
